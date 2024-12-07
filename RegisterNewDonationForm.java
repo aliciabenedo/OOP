@@ -2,29 +2,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package foodnetworkrescue;
+package foodrescuenetwork3;
 
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author EmoshiogweOmokhudu
  */
-public class RegisterNewDonationForm extends javax.swing.JFrame {
-    private static ArrayList<Donation> donation = new ArrayList<>();
+  public class RegisterNewDonationForm extends javax.swing.JFrame {
+  private FoodController foodController;
 
     /**
      * Creates new form RegisterNewDonationForm
      */
-    public RegisterNewDonationForm() {
+    public RegisterNewDonationForm(FoodController controller) {
+        this.foodController = controller;
         initComponents();
     }
-    
-    public static ArrayList<Donation> getDonations(){
-        return donation;
-    }
 
+    private RegisterNewDonationForm() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,30 +34,24 @@ public class RegisterNewDonationForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        txtFoodType = new javax.swing.JTextField();
-        txtQuantity = new javax.swing.JTextField();
-        txtExpiryDate = new javax.swing.JTextField();
-        txtAvailabilityTime = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        descritionTF = new javax.swing.JTextField();
+        expirydateTF = new javax.swing.JTextField();
+        quantityTF = new javax.swing.JTextField();
+        foodtypeTF = new javax.swing.JTextField();
         btnSubmit = new javax.swing.JButton();
         btnBacktoMain = new javax.swing.JButton();
+        lbldescription = new javax.swing.JLabel();
+        lblexpirydate = new javax.swing.JLabel();
+        lblquantity = new javax.swing.JLabel();
+        lblfoodtype = new javax.swing.JLabel();
+        lblregisternewdonation = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Food Type");
+        jPanel1.setBackground(new java.awt.Color(0, 153, 204));
 
-        jLabel2.setText("Quantity");
-
-        jLabel3.setText("Register New Donation");
-
-        jLabel4.setText("Expiry Date");
-
-        jLabel5.setText("Donation Availability Time");
-
+        btnSubmit.setBackground(new java.awt.Color(102, 102, 102));
         btnSubmit.setText("Submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,6 +59,7 @@ public class RegisterNewDonationForm extends javax.swing.JFrame {
             }
         });
 
+        btnBacktoMain.setBackground(new java.awt.Color(102, 102, 102));
         btnBacktoMain.setText("Back to Main");
         btnBacktoMain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,67 +67,95 @@ public class RegisterNewDonationForm extends javax.swing.JFrame {
             }
         });
 
+        lbldescription.setText("Description");
+
+        lblexpirydate.setText("Expiry Date");
+
+        lblquantity.setText("Quantity");
+
+        lblfoodtype.setText("Food Type");
+
+        lblregisternewdonation.setText("Register New Donation");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(lblfoodtype)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(foodtypeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lbldescription))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblquantity)
+                                    .addComponent(lblexpirydate))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(descritionTF, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                            .addComponent(quantityTF)
+                            .addComponent(expirydateTF))))
+                .addGap(79, 79, 79))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnBacktoMain))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(241, 241, 241)
+                        .addComponent(lblregisternewdonation)))
+                .addContainerGap(257, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(lblfoodtype))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(lblregisternewdonation)
+                        .addGap(23, 23, 23)
+                        .addComponent(foodtypeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(quantityTF, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblquantity))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(expirydateTF, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblexpirydate))
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbldescription)
+                    .addComponent(descritionTF, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnBacktoMain, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                    .addComponent(btnSubmit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtFoodType, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtExpiryDate, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnSubmit)
-                                    .addComponent(btnBacktoMain))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                                .addComponent(txtAvailabilityTime, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(70, 70, 70))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtFoodType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtExpiryDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(txtAvailabilityTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(btnSubmit)
-                .addGap(18, 18, 18)
-                .addComponent(btnBacktoMain)
-                .addGap(32, 32, 32))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -140,28 +163,40 @@ public class RegisterNewDonationForm extends javax.swing.JFrame {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-        String foodType = txtFoodType.getText();
-        int quantity = Integer.parseInt(txtQuantity.getText());
-        String expiryDate = txtExpiryDate.getText();
-        String availabilityTime = txtAvailabilityTime.getText();
         
-        Donation newDonation = new Donation(foodType, quantity, expiryDate, availabilityTime);
-        donation.add(newDonation);
-        
-        JOptionPane.showMessageDialog(this, "Donation Registered Successfully!");
-        txtFoodType.setText("");
-        txtQuantity.setText("");
-        txtExpiryDate.setText("");
-        txtAvailabilityTime.setText("");
-        
-        
-                
-        
+        // Retrieve data from text fields
+        String foodType = foodtypeTF.getText();
+        int quantity;
+        try {
+            quantity = Integer.parseInt(quantityTF.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid number for quantity.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        String expiryDate = expirydateTF.getText();
+        String description = descritionTF.getText();
+
+        // Create a Food object
+        Food food = new Food(foodType, quantity, expiryDate, description);
+
+        // Add food to inventory via FoodController
+        foodController.addFood(food);
+
+        // Confirmation message
+        JOptionPane.showMessageDialog(null, "Donation Registered Successfully!");
+
+        // Optional: Clear input fields after adding
+        foodtypeTF.setText("");
+        quantityTF.setText("");
+        expirydateTF.setText("");
+        descritionTF.setText("");
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnBacktoMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBacktoMainActionPerformed
         // TODO add your handling code here:
-        DonorDashboard dashboard = new DonorDashboard();
+        BusinessController businessController = new BusinessController(); // Or get the existing instance
+        FoodController foodController = new FoodController(); // Or get the existing instance
+        DonorDashboard dashboard = new DonorDashboard(businessController, foodController);
         dashboard.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnBacktoMainActionPerformed
@@ -204,14 +239,15 @@ public class RegisterNewDonationForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBacktoMain;
     private javax.swing.JButton btnSubmit;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField txtAvailabilityTime;
-    private javax.swing.JTextField txtExpiryDate;
-    private javax.swing.JTextField txtFoodType;
-    private javax.swing.JTextField txtQuantity;
+    private javax.swing.JTextField descritionTF;
+    private javax.swing.JTextField expirydateTF;
+    private javax.swing.JTextField foodtypeTF;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbldescription;
+    private javax.swing.JLabel lblexpirydate;
+    private javax.swing.JLabel lblfoodtype;
+    private javax.swing.JLabel lblquantity;
+    private javax.swing.JLabel lblregisternewdonation;
+    private javax.swing.JTextField quantityTF;
     // End of variables declaration//GEN-END:variables
 }

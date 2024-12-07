@@ -2,20 +2,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package foodnetworkrescue;
+package foodrescuenetwork3;
 
 /**
  *
  * @author EmoshiogweOmokhudu
  */
 public class DonorDashboard extends javax.swing.JFrame {
+    private BusinessController businessController;
+    private FoodController foodController;
 
     /**
      * Creates new form DonorDashboard
      */
-    public DonorDashboard() {
+    public DonorDashboard(BusinessController businessController, FoodController foodController) {
+        this.businessController = businessController;
+        this.foodController = foodController;
         initComponents();
     }
+    
+    public DonorDashboard() {
+        this.businessController = new BusinessController(); // Default initialization
+        this.foodController = new FoodController(); // Default initialization
+        initComponents();
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,32 +37,30 @@ public class DonorDashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        btnRegisterNewDonationForm = new javax.swing.JButton();
-        btnViewDonationHistory = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        lblwelcome = new javax.swing.JLabel();
+        btnpickupschedule = new javax.swing.JButton();
+        lbldonordashboard = new javax.swing.JLabel();
         btnProfileManagment = new javax.swing.JButton();
+        btnRegisterNewDonationForm = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Donor Dashboard");
+        jPanel3.setBackground(new java.awt.Color(0, 102, 153));
 
-        jLabel2.setText("Welcome! , Ready to make a difference today");
+        lblwelcome.setText("Welcome! , Ready to make a difference today");
 
-        btnRegisterNewDonationForm.setText("Register New Donation Form");
-        btnRegisterNewDonationForm.addActionListener(new java.awt.event.ActionListener() {
+        btnpickupschedule.setBackground(new java.awt.Color(102, 102, 102));
+        btnpickupschedule.setText("PickUp Schedule");
+        btnpickupschedule.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegisterNewDonationFormActionPerformed(evt);
+                btnpickupscheduleActionPerformed(evt);
             }
         });
 
-        btnViewDonationHistory.setText("View Donation History");
-        btnViewDonationHistory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewDonationHistoryActionPerformed(evt);
-            }
-        });
+        lbldonordashboard.setText("Donor Dashboard");
 
+        btnProfileManagment.setBackground(new java.awt.Color(102, 102, 102));
         btnProfileManagment.setText("Profile Management");
         btnProfileManagment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,68 +68,89 @@ public class DonorDashboard extends javax.swing.JFrame {
             }
         });
 
+        btnRegisterNewDonationForm.setBackground(new java.awt.Color(102, 102, 102));
+        btnRegisterNewDonationForm.setText("Register New Donation Form");
+        btnRegisterNewDonationForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterNewDonationFormActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(260, 260, 260)
+                        .addComponent(lbldonordashboard))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnpickupschedule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnProfileManagment, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                            .addComponent(btnRegisterNewDonationForm, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(198, 198, 198)
+                        .addComponent(lblwelcome)))
+                .addGap(42, 251, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lbldonordashboard)
+                .addGap(18, 18, 18)
+                .addComponent(lblwelcome)
+                .addGap(104, 104, 104)
+                .addComponent(btnRegisterNewDonationForm, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(btnProfileManagment, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(btnpickupschedule, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(302, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnRegisterNewDonationForm))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnProfileManagment))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnViewDonationHistory)))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(59, 59, 59)
-                .addComponent(btnRegisterNewDonationForm)
-                .addGap(18, 18, 18)
-                .addComponent(btnProfileManagment, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnViewDonationHistory)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRegisterNewDonationFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterNewDonationFormActionPerformed
+    private void btnpickupscheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpickupscheduleActionPerformed
         // TODO add your handling code here:
-        RegisterNewDonationForm registerForm = new RegisterNewDonationForm();
-        registerForm.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnRegisterNewDonationFormActionPerformed
+        PickupScheduleForm pickupScheduleForm = new PickupScheduleForm();
+        pickupScheduleForm.setVisible(true);
+
+    }//GEN-LAST:event_btnpickupscheduleActionPerformed
 
     private void btnProfileManagmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileManagmentActionPerformed
         // TODO add your handling code here:
-        ProfileManagment profileForm = new ProfileManagment();
+        ProfileManagement profileForm = new ProfileManagement(businessController);
         profileForm.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnProfileManagmentActionPerformed
 
-    private void btnViewDonationHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDonationHistoryActionPerformed
+    private void btnRegisterNewDonationFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterNewDonationFormActionPerformed
         // TODO add your handling code here:
-        DonationHistoryForm historyForm = new DonationHistoryForm(RegisterNewDonationForm.getDonations());
-        historyForm.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnViewDonationHistoryActionPerformed
+        RegisterNewDonationForm registerForm = new RegisterNewDonationForm(foodController);
+        registerForm.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnRegisterNewDonationFormActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,7 +182,9 @@ public class DonorDashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DonorDashboard().setVisible(true);
+                BusinessController businessController = new BusinessController(); // Initialize BusinessController
+                FoodController foodController = new FoodController(); // Initialize FoodController
+                new DonorDashboard(businessController, foodController).setVisible(true);
             }
         });
     }
@@ -160,8 +192,9 @@ public class DonorDashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnProfileManagment;
     private javax.swing.JButton btnRegisterNewDonationForm;
-    private javax.swing.JButton btnViewDonationHistory;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btnpickupschedule;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lbldonordashboard;
+    private javax.swing.JLabel lblwelcome;
     // End of variables declaration//GEN-END:variables
 }
